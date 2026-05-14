@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>边睡边记 1-10句 | 睡前意大利语基本口语1000句</title>
+  <style>
+:root { --navy:#1a2342; --gold:#c9a84c; --gold-light:#e8d48b; --gray-light:#f5f7fa; --gray-mid:#e2e8f0; --text-dark:#2c3e50; --accent-blue:#3b82f6; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--gray-light);color:var(--text-dark);line-height:1.8;min-height:100vh}
+.header{background:linear-gradient(135deg,var(--navy) 0%,#24355a 50%,#1a2342 100%);color:#fff;padding:30px 20px;text-align:center;position:relative;overflow:hidden}
+.header::before{content:"";position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);border-radius:50%}
+.header h1{font-size:1.8em;margin-bottom:8px;position:relative;z-index:1}.header h1 span{color:var(--gold)}
+.header p{color:var(--gold-light);font-size:.95em;opacity:.85;position:relative;z-index:1}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;font-size:.85em;color:rgba(255,255,255,.65);position:relative;z-index:1}
+.breadcrumb a{color:var(--gold-light);text-decoration:none}
+.page-info{background:#fff;border-bottom:2px solid var(--gold);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.page-num{background:var(--navy);color:var(--gold);padding:6px 16px;border-radius:20px;font-weight:bold;letter-spacing:1px}
+.page-name{font-size:1.15em;font-weight:600;color:var(--navy);margin-left:10px}
+.progress-bar{width:200px;height:8px;background:var(--gray-mid);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#dab94f)}
+.progress-text{font-size:.78em;color:#888;margin-top:3px}
+.nav-buttons{display:flex;justify-content:space-between;max-width:900px;margin:20px auto 0;padding:0 16px;flex-wrap:wrap;gap:10px}
+.nav-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:25px;font-size:.88em;text-decoration:none;transition:all .25s;border:none;font-family:inherit;font-weight:500;cursor:pointer}
+.nav-btn.primary{background:var(--navy);color:var(--gold)}.nav-btn.primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,35,66,.3)}
+.nav-btn.secondary{background:#fff;color:var(--navy);border:1.5px solid var(--gray-mid)}
+.container{max-width:900px;margin:0 auto;padding:20px 16px 60px}
+.sentence-card{background:#fff;border-radius:14px;margin-bottom:26px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;border-left:4px solid var(--gold)}
+.sentence-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.sentence-header{padding:22px 24px 18px;border-bottom:1px solid var(--gray-light)}
+.sentence-number{display:inline-block;background:var(--navy);color:var(--gold);width:32px;height:32px;line-height:32px;text-align:center;border-radius:50%;font-size:.82em;font-weight:bold;margin-right:12px;vertical-align:middle}
+.italian-text{font-size:1.35em;color:var(--navy);font-weight:600;vertical-align:middle}
+.italian-text em{color:var(--accent-blue);font-style:normal;font-weight:700}
+.chinese-text{margin-top:10px;font-size:1.05em;color:#666;padding-left:44px}
+.audio-section{padding:14px 24px;background:linear-gradient(135deg,#fafbfd 0%,#f0f4f8 100%);border-bottom:1px solid var(--gray-light);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.audio-label{font-size:.78em;color:#999;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.audio-btn-group{display:flex;gap:8px;flex-wrap:wrap}
+.audio-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:18px;font-size:.8em;cursor:pointer;border:1.5px solid transparent;transition:all .2s;font-family:inherit;background:#fff;color:var(--text-dark);font-weight:500}
+.audio-btn:hover{transform:scale(1.05)}
+.audio-btn.slow{border-color:#93c5fd;background:#eff6ff;color:#2563eb}
+.audio-btn.normal{border-color:#86efac;background:#f0fdf4;color:#16a34a}
+.audio-btn.fast{border-color:#fca5a5;background:#fef2f2;color:#dc2626}
+.audio-btn.playing{animation:pulse 1s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.detail-section{padding:18px 24px;border-top:1px dashed var(--gray-mid)}
+.section-title{display:flex;align-items:center;gap:8px;font-size:.92em;font-weight:600;color:var(--navy);margin-bottom:12px}
+.section-icon{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75em}
+.section-icon.words{background:#dbeafe;color:#2563eb}
+.section-icon.grammar{background:#fef3c7;color:#d97706}
+.section-icon.note{background:#ede9fe;color:#7c3aed}
+.word-list{list-style:none}
+.word-item{padding:8px 0;border-bottom:1px dotted var(--gray-mid);display:grid;grid-template-columns:auto 1fr auto;gap:8px 16px;align-items:baseline}
+.word-item:last-child{border-bottom:none}
+.word-it{font-weight:700;color:var(--navy);white-space:nowrap}
+.word-pos{font-size:.72em;color:#888;background:var(--gray-light);padding:1px 8px;border-radius:10px;margin-left:4px;font-style:italic}
+.word-meaning{font-size:.92em;color:#555}
+.word-extra{font-size:.78em;color:var(--accent-blue);text-align:right;white-space:nowrap}
+.grammar-box{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 30%,#fff 100%);border-radius:10px;padding:14px 16px;border:1px solid #fcd34d}
+.grammar-point{margin-bottom:10px}.grammar-point:last-child{margin-bottom:0}
+.gp-label{display:inline-block;font-size:.73em;font-weight:700;color:#b45309;background:#fef3c7;padding:2px 8px;border-radius:8px;margin-right:6px}
+.gp-text{font-size:.9em;color:#78350f}
+.example-sent{margin-top:6px;padding-left:14px;border-left:3px solid #fbbf24;font-size:.87em;color:#92400e}
+.example-sent em{color:#b45309;font-style:normal;font-weight:600}
+.note-box{background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 40%,#fff 100%);border-radius:10px;padding:14px 16px;border:1px solid #c4b5fd;font-size:.9em;color:#5b21b6}
+.footer{text-align:center;padding:30px 20px;color:#aaa;font-size:.82em;border-top:1px solid var(--gray-mid);margin-top:20px}
+.footer a{color:var(--gold);text-decoration:none}
+@media(max-width:600px){.header h1{font-size:1.35em}.page-info{flex-direction:column;text-align:center}.progress-bar{width:100%}.nav-buttons{flex-direction:column}.nav-btn{justify-content:center;width:100%}.word-item{grid-template-columns:1fr;gap:4px}.word-extra{text-align:left}.italian-text{font-size:1.15em}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="breadcrumb"><a href="index.html">🏠 目录</a> &gt; 边睡边记</div>
+  <h1><span>🌙 睡前意大利语基本口语1000句</span></h1>
+  <p>每晚睡前10句 · 轻松掌握地道口语表达 · 第 1 页（共100页）</p>
+</div>
+<div class="page-info">
+  <div style="display:flex;align-items:center;">
+    <div class="page-num">PAG.01</div>
+    <div class="page-name">边睡边记 · 第 1-10 句</div>
+  </div>
+  <div>
+    <div class="progress-bar"><div class="progress-fill" style="width:1%"></div></div>
+    <div class="progress-text">进度：10/1000（1%）</div>
+  </div>
+</div>
+<div class="nav-buttons">
+  <a class="nav-btn secondary" href="index.html">← 返回目录</a>
+  <a class="nav-btn primary" href="page_002.html">下一页 11-20 →</a>
+</div>
+<div class="container">
+
+<div class="sentence-card" id="s1">
+  <div class="sentence-header">
+    <span class="sentence-number">#1</span>
+    <span class="italian-text"><em>Hai la mia parola.</em></span>
+    <div class="chinese-text">我向你保证。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Hai la mia parola.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Hai la mia parola.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Hai la mia parola.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Hai<span class="word-pos">v. (tu)</span></span></div><div class="word-meaning">你有（动词 avere 的第二人称单数变位）</div><div class="word-extra">avere → hai → ha → abbiamo...</div></li><li class="word-item"><div><span class="word-it">la<span class="word-pos">art. f.</span></span></div><div class="word-meaning">定冠词，阴性单数形式</div><div class="word-extra">la = il 的阴性对应词</div></li><li class="word-item"><div><span class="word-it">mia<span class="word-pos">poss. adj. f.</span></span></div><div class="word-meaning">我的（阴性形容词，修饰名词）</div><div class="word-extra">mio/mia → miei/mie</div></li><li class="word-item"><div><span class="word-it">parola<span class="word-pos">n. f.</span></span></div><div class="word-meaning">话；诺言；词语</div><div class="word-extra">pl. parole</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">句式结构</span><span class="gp-text"><strong>Hai + 定冠词 + 物主代词 + 名词 = 你拥有某物</strong><br>直译："你有我的话/我的承诺"</span></div><div class="grammar-point"><span class="gp-label">物主形容词配合</span><span class="gp-text">意大利语的物主形容词必须与被修饰的名词在性、数上保持一致：<br>• parola 是<strong>阴性单数</strong> → 用 <strong>mia</strong><br>• 如果是 parole（复数）→ 用 mie</span></div>
+      <div class="example-sent">✅ Hai la <em>mia</em> <strong>parola</strong>.（你拥有我的诺言。）<br>✅ Ho il <em>tuo</em> <strong>libro</strong>.（我有你的书。）（阳性用 tuo）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">这是意大利人常用的郑重承诺用语，相当于英语 "You have my word." 常用于正式场合或向朋友做出重要保证时使用。也可以说 <strong>Ti do la mia parola.</strong>（我把我的诺言给你），意思完全相同。</div>
+  </div>
+</div>
+<div class="sentence-card" id="s2">
+  <div class="sentence-header">
+    <span class="sentence-number">#2</span>
+    <span class="italian-text"><em>Sono già sazio.</em></span>
+    <div class="chinese-text">我已经吃饱了。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Sono già sazio.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Sono già sazio.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Sono già sazio.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Sono<span class="word-pos">v. (io)</span></span></div><div class="word-meaning">我是（动词 essere 的第一人称单数变位）</div><div class="word-extra">essere → sono → sei → è...</div></li><li class="word-item"><div><span class="word-it">già<span class="word-pos">adv.</span></span></div><div class="word-meaning">已经；早就</div><div class="word-extra">常用于完成时态中</div></li><li class="word-item"><div><span class="word-it">sazio<span class="word-pos">adj. m.</span></span></div><div class="word-meaning">饱的；满足的（阳性形容词）</div><div class="word-extra">f. sazia | pl. sazi/sazie</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">系动词 + 形容词</span><span class="gp-text"><strong>Sono + 形容词</strong> 表示"我是...的状态"<br>这是意大利语中最常见的表语句式之一。说话者默认省略主语 <strong>io</strong>（我），因为动词变位已经暗示了人称。</span></div><div class="grammar-point"><span class="gp-label">副词 già 的位置</span><span class="gp-text"><strong>già</strong> 通常放在形容词之前，表示"已经处于某种状态"。</span></div>
+      <div class="example-sent">✅ Sono <em>già</em> <strong>sazio</strong>.（我已吃饱了。）<br>✅ Siamo <em>già</em> <strong>pronti</strong>.（我们已准备好了。）<br>✅ Sei <em>già</em> <strong>stanco</strong>?（你已经累了？）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">在餐厅点餐或用餐时非常实用！如果服务员问还要不要别的，直接回答 "<strong>Sono già sazio!</strong>" 即可。<br><br>🚺 女性说：<strong>Sono già sazia.</strong></div>
+  </div>
+</div>
+<div class="sentence-card" id="s3">
+  <div class="sentence-header">
+    <span class="sentence-number">#3</span>
+    <span class="italian-text"><em>Fammi dormire.</em></span>
+    <div class="chinese-text">让我睡觉。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Fammi dormire.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Fammi dormire.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Fammi dormire.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Fammi<span class="word-pos">v. imperat.</span></span></div><div class="word-meaning">让/使（fare + mi 的缩合命令式）</div><div class="word-extra">fare + mi = fammi</div></li><li class="word-item"><div><span class="word-it">dormire<span class="word-pos">v. inf.</span></span></div><div class="word-meaning">睡觉（不定式原形）</div><div class="word-extra">dormo/dormi/dorme/dormiamo...</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">Fare causativo（使役结构）</span><span class="gp-text"><strong>Fare + 不定式动词</strong> = "让某人做某事"<br>这是一个非常重要的意大利语句型，<strong>fammi</strong> = fare（让）+ mi（对我/给我）的缩合命令式。</span></div><div class="grammar-point"><span class="gp-label">缩合命令式详解</span><span class="gp-text">当命令式动词后面接代词时，会发生缩合现象：</span></div>
+      <div class="example-sent">✅ <em>Fammi</em> <strong>dormire</strong>.（让我睡觉。）<br>✅ <em>Fammi</em> <strong>vedere</strong>.（让我看看。）<br>✅ <em>Dimmelo</em>.（告诉我。）= Dimi + lo<br>✅ <em>Dammelo</em>.（把它给我。）= Dami + lo</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">这句话非常适合睡前场景使用！当你想结束对话去睡觉时，可以半开玩笑地说 "<strong>Fammi dormire!</strong>"（让我睡觉吧！）。语气可以是撒娇、认真或无奈，取决于上下文。</div>
+  </div>
+</div>
+<div class="sentence-card" id="s4">
+  <div class="sentence-header">
+    <span class="sentence-number">#4</span>
+    <span class="italian-text"><em>Mi ha toccato.</em></span>
+    <div class="chinese-text">他/她触碰了我。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Mi ha toccato.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Mi ha toccato.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Mi ha toccato.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Mi<span class="word-pos">pron. rifl.</span></span></div><div class="word-meaning">我（间接宾语代词，放在动词前）</div><div class="word-extra">mi/ti/ci/vi/li/le/si</div></li><li class="word-item"><div><span class="word-it">ha<span class="word-pos">v. aux. (lui/lei)</span></span></div><div class="word-meaning">他/她有（avere 的第三人称单数变位）</div><div class="word-extra">助动词，构成近过去时</div></li><li class="word-item"><div><span class="word-it">toccato<span class="word-pos">part. pass.</span></span></div><div class="word-meaning">触碰过的（toccare 的过去分词）</div><div class="word-extra">toccare = 触摸；涉及；弹奏</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">近过去时 Passato Prossimo</span><span class="gp-text"><strong>Mi ha toccato</strong> = 近过去时结构<br><strong>间接宾语代词(mi)</strong> + <strong>助动词(ha)</strong> + <strong>过去分词(toccato)</strong></span></div><div class="grammar-point"><span class="gp-label">代词前置规则</span><span class="gp-text">意大利语中，宾语代词通常放在<strong>变位动词之前</strong>：</span></div>
+      <div class="example-sent">✅ <em>Mi</em> <strong>ha</strong> <em>toccato</em>.（他碰了我。）<br>✅ <em>Ti</em> <strong>ho</em> <em>chiamato</em>.（我叫了你。）<br>✅ <em>Ci</em> <strong>hanno</strong> <em>visto</em>.（他们看见了我们。）<br><br><strong>关于主语性别：</strong>ha 可以是 lui 或 lei。如需明确：Mi ha toccato <strong>lui</strong>. / Mi ha toccato <strong>lei</strong>.</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box"><strong>toccare</strong> 是一个多义动词，除了"触摸"，还常用作"涉及"、"轮到"：<br>• <strong>Non mi tocca.</strong>（不关我的事 / 没轮到我。）<br>• <strong>Questa storia non ci tocca.</strong>（这件事跟我们无关。）</div>
+  </div>
+</div>
+<div class="sentence-card" id="s5">
+  <div class="sentence-header">
+    <span class="sentence-number">#5</span>
+    <span class="italian-text"><em>Stai scherzando?</em></span>
+    <div class="chinese-text">你开玩笑吧？</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Stai scherzando?',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Stai scherzando?',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Stai scherzando?',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Stai<span class="word-pos">v. (tu)</span></span></div><div class="word-meaning">你在（stare 的第二人称单数变位）</div><div class="word-extra">sto/stai/sta/stiamo/stete/stanno</div></li><li class="word-item"><div><span class="word-it">scherzando<span class="word-pos">gerundio</span></span></div><div class="word-meaning">正在开玩笑（scherzare 的副动形）</div><div class="word-extra">scherzare = 开玩笑；戏弄</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">进行时态 Stare + Gerundio</span><span class="gp-text"><strong>Stare + 副动形（-ando/-endo）</strong> = 正在做某事<br>这是意大利语中表示"正在..."的标准句式，相当于英语的 Present Continuous。</span></div><div class="grammar-point"><span class="gp-label">疑问句语调</span><span class="gp-text">这句话是<strong>陈述句+疑问语调</strong>构成的疑问句。书面中通过<strong>问号</strong>标识，口语中通过升调来表达疑问含义。</span></div>
+      <div class="example-sent">✅ Cosa <em>stai</em> <strong>facendo</strong>?（你在做什么？）<br>✅ <em>Sto</em> <strong>cucinando</strong>.（我在做饭。）<br>✅ <em>Sta</em> <strong>piovendo</strong>.（正在下雨。）<br>✅ <em>Stiamo</em> <strong>dormendo</strong>.（我们在睡觉呢。）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">这是一句非常地道的日常表达！当你听到令人难以置信的消息时脱口而出：🗣️ "<strong>Stai scherzando?!</strong>"<br><br>类似说法还有："<strong>Scherzi?</strong>"（更简短）、"<strong>Dai, sul serio?</strong>"</div>
+  </div>
+</div>
+<div class="sentence-card" id="s6">
+  <div class="sentence-header">
+    <span class="sentence-number">#6</span>
+    <span class="italian-text"><em>No, veramente?</em></span>
+    <div class="chinese-text">不是吧，真的？</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('No, veramente?',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('No, veramente?',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('No, veramente?',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">No<span class="word-pos">interj.</span></span></div><div class="word-meaning">不；不会吧（此处为感叹用法）</div><div class="word-extra">表示惊讶、不信</div></li><li class="word-item"><div><span class="word-it">veramente<span class="word-pos">adv.</span></span></div><div class="word-meaning">真的；确实；实际上</div><div class="word-extra">同义词：davvero, davvero</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">感叹疑问句</span><span class="gp-text"><strong>No, veramente?</strong> 不是标准的语法疑问句，而是<strong>口语中的反问/感叹表达</strong>。<br>这里的 No 不是否定回答，而是<strong>表示震惊</strong>的感叹词，意思是"不会吧？"</span></div>
+      <div class="example-sent">A: "Ho vinto alla lotteria!"（我中奖了！）<br>B: <em><strong>No, veramente?!</strong></em>（不会吧，真的？！）<br><br>其他类似表达：<br>• <strong>Ma dai!</strong>（得了吧！）<br>• <strong>Seriamente?</strong>（认真的？）<br>• <strong>Ma va'!</strong>（哪能啊！）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">这是一个非常<strong>口语化、非正式</strong>的表达，常见于年轻人之间的对话中。语调上扬表示惊讶和怀疑，下降则可能带有讽刺意味。</div>
+  </div>
+</div>
+<div class="sentence-card" id="s7">
+  <div class="sentence-header">
+    <span class="sentence-number">#7</span>
+    <span class="italian-text"><em>Non essere indeciso.</em></span>
+    <div class="chinese-text">别犹豫不决。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Non essere indeciso.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Non essere indeciso.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Non essere indeciso.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Non<span class="word-pos">adv. neg.</span></span></div><div class="word-meaning">不；别（否定副词，放动词前）</div><div class="word-extra"></div></li><li class="word-item"><div><span class="word-it">essere<span class="word-pos">v. inf./imperat.</span></span></div><div class="word-meaning">是；成为（否定命令式形式）</div><div class="word-extra">sii/siamo/siate (肯定命令式)</div></li><li class="word-item"><div><span class="word-it">indeciso<span class="word-pos">adj. m.</span></span></div><div class="word-meaning">犹豫不决的；未定的（阳性）</div><div class="word-extra">f. indecisa | pl. indecisi/indecise</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">否定命令式 Imperativo Negativo</span><span class="gp-text">意大利语否定命令式有一个特殊规则——对于 <strong>tu</strong>（你）的形式，<strong>不用肯定命令式加 non</strong>，而是用 <strong>non + 不定式</strong>！</span></div><div class="grammar-point"><span class="gp-label">注意例外</span><span class="gp-text">这个规则只适用于 <strong>tu</strong>。对 Lei/noi/voi 仍用 non + 命令式变位：</span></div>
+      <div class="example-sent">❌ Non <em>sii</em> indeciso!（❌ 错误）<br>✅ Non <em>essere</em> indeciso!（✅ 正确 — 用不定式）<br><br>更多例子：<br>✅ Non <em>andare</em> via!（别走开！）<br>✅ Non <em>parlare</em> forte!（别大声说话！）<br>✅ Non <em>sia</em> indeciso!（您别犹豫！）— Lei<br>✅ Non <em>siate</em> indecisi!（你们别犹豫！）— voi</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">鼓励别人果断行动时的好句子！也可以换其他形容词：<br>• <strong>Non essere timido.</strong>（别害羞。）<br>• <strong>Non essere nervoso.</strong>（别紧张。）<br>• <strong>Non essere pessimista.</strong>（别悲观。）</div>
+  </div>
+</div>
+<div class="sentence-card" id="s8">
+  <div class="sentence-header">
+    <span class="sentence-number">#8</span>
+    <span class="italian-text"><em>Non sto molto bene.</em></span>
+    <div class="chinese-text">我感觉不太好。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Non sto molto bene.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Non sto molto bene.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Non sto molto bene.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Non<span class="word-pos">adv. neg.</span></span></div><div class="word-meaning">不（否定副词）</div><div class="word-extra"></div></li><li class="word-item"><div><span class="word-it">sto<span class="word-pos">v. (io)</span></span></div><div class="word-meaning">我处于（stare 第一人称单数）</div><div class="word-extra">stare = 处于...状态</div></li><li class="word-item"><div><span class="word-it">molto<span class="word-pos">adv./adj.</span></span></div><div class="word-meaning">很；非常（程度副词）</div><div class="word-extra">molti/molta/molt | pl.</div></li><li class="word-item"><div><span class="word-it">bene<span class="word-pos">adv.</span></span></div><div class="word-meaning">好（副词，修饰状态/动作）</div><div class="word-extra">反义词：male</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">Stare + 副词/形容词 = 描述状态</span><span class="gp-text"><strong>Stare bene/male</strong> 是意大利语中最常用的描述身体状况的方式，比 "sentirsi bene" 更简洁自然。</span></div><div class="grammar-point"><span class="gp-label">程度副词 molto</span><span class="gp-text"><strong>molto</strong> 在这里修饰副词 <strong>bene</strong>，表示程度"不太"。也可以说 <strong>non sto benissimo</strong>（我不是非常好）。</span></div>
+      <div class="example-sent">✅ Come <em>stai</em>? — <em>Sto</em> <strong>bene</strong>.（你好吗？——很好。）<br>✅ Como <em>stai</em>? — Non <em>sto</em> <strong>molto bene</strong>.（你好吗？——不太好。）<br>✅ <em>Sto</em> <strong>male</strong>.（我不舒服。）<br>✅ <em>Stiamo</em> <strong>tutti bene</strong>.（我们都很好。）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">当有人问你 "Come stai?" 而你想委婉表达身体不适时，这句话最得体。既表达了不适感又不过于夸张。<br><br>更严重时可以说：<strong>Non sto per niente bene.</strong></div>
+  </div>
+</div>
+<div class="sentence-card" id="s9">
+  <div class="sentence-header">
+    <span class="sentence-number">#9</span>
+    <span class="italian-text"><em>Non ne posso più.</em></span>
+    <div class="chinese-text">我厌倦了。/ 我受不了了。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Non ne posso più.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Non ne posso più.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Non ne posso più.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">ne<span class="word-pos">pron. partitivo</span></span></div><div class="word-meaning">部分代词（指代前面提到的事物）</div><div class="word-extra">代替 di + 名词/代词</div></li><li class="word-item"><div><span class="word-it">posso<span class="word-pos">v. (io)</span></span></div><div class="word-meaning">我能（potere 的第一人称单数）</div><div class="word-extra">posso/puoi/può...</div></li><li class="word-item"><div><span class="word-it">più<span class="word-pos">adv.</span></span></div><div class="word-meaning">更多；再（在此处意为"再也")</div><div class="word-extra">non ... più = 不再...</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">非...più 结构（不再...）</span><span class="gp-text"><strong>Non + 代词 + 动词 + più</strong> = "不能再...了"<br>这是意大利语中表示"达到极限、无法继续"的经典句式。</span></div><div class="grammar-point"><span class="gp-label">代词 ne 的作用</span><span class="gp-text"><strong>ne</strong> 是部分代词，在这里<strong>泛指</strong>"这件事/这种状态"。字面意思："对此我再也不能了。"</span></div>
+      <div class="example-sent">✅ <em>Non ne</em> <strong>posso più</strong>!（我受够了！）<br>✅ <em>Non lo</em> <strong>posso più</strong> <em>vedere</em>!（我再看不下去了！）<br>✅ <em>Non ne</em> <strong>posso più</em> di <em>lavorare</em>.（工作不下去了。）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">意大利人表达<strong>疲惫、厌烦、崩溃</strong>情绪时的口头禅！无论是工作累、感情受挫还是压力大，一句 "<strong>Non ne posso più!</strong>" 就能传达所有无奈。</div>
+  </div>
+</div>
+<div class="sentence-card" id="s10">
+  <div class="sentence-header">
+    <span class="sentence-number">#10</span>
+    <span class="italian-text"><em>Non male.</em></span>
+    <div class="chinese-text">不太糟。/ 还不错。</div>
+  </div>
+  <div class="audio-section">
+    <span class="audio-label">🔊 发音</span>
+    <div class="audio-btn-group">
+      <button class="audio-btn slow" onclick="speak('Non male.',0.7)">🐢 慢速</button>
+      <button class="audio-btn normal" onclick="speak('Non male.',1)">🎵 正常</button>
+      <button class="audio-btn fast" onclick="speak('Non male.',1.3)">🚀 快速</button>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon words">📖</span> 单词解析</div>
+    <ul class="word-list"><li class="word-item"><div><span class="word-it">Non<span class="word-pos">adv. neg.</span></span></div><div class="word-meaning">不（否定副词）</div><div class="word-extra"></div></li><li class="word-item"><div><span class="word-it">male<span class="word-pos">adv./adj. m.</span></span></div><div class="word-meaning">坏；糟糕；不好</div><div class="word-extra">反义词：bene | 比较级：peggio</div></li></ul>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon grammar">⚙️</span> 语法解析</div>
+    <div class="grammar-box"><div class="grammar-point"><span class="gp-label">否定词 + 反义词 = 含蓄肯定</span><span class="gp-text"><strong>Non male</strong> 字面意思是"不坏"，实际含义是<strong>"还不错"、"过得去"</strong>。<br>这是典型的<strong>低调表达法（litotes）</strong>——用否定的反面来含蓄地表示正面含义。</span></div>
+      <div class="example-sent">✅ Com'è andata? — <em>Non male</em>.（怎么样？——还不错。）<br>✅ Il film? — <em>Non male</em>.（电影？——还可以。）<br><br>等级递进：<br>⭐ <strong>Non male</strong>（还不错）<br>⭐⭐ <strong>Bene</strong>（很好）<br>⭐⭐⭐ <strong>Molto bene</strong>（非常好）<br>⭐⭐⭐⭐ <strong>Ottimo/Eccellente</strong>（极好）</div>
+    </div>
+  </div>
+  <div class="detail-section">
+    <div class="section-title"><span class="section-icon note">💡</span> 实用提示</div>
+    <div class="note-box">意大利人的<strong>经典含蓄评价</strong>！当你不想过度夸奖也不想贬低时，"<strong>Non male</strong>"是最完美的社交万金油短语。</div>
+  </div>
+</div>
+</div>
+<div class="nav-buttons" style="padding-bottom:30px;">
+  <a class="nav-btn secondary" href="index.html">← 返回目录</a>
+  <a class="nav-btn primary" href="page_002.html">下一页 11-20 →</a>
+</div>
+<div class="footer">
+  <p>🌙 睡前意大利语基本口语1000句 | 共100页 | <a href="https://github.com/realrentao/italiano-1000-frasi">GitHub</a></p>
+</div>
+<script>
+function speak(text, rate){
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "it-IT";
+  u.rate = rate;
+  u.pitch = 1;
+  const voices = window.speechSynthesis.getVoices();
+  const itVoice = voices.find(v => v.lang.startsWith("it"));
+  if(itVoice) u.voice = itVoice;
+  window.speechSynthesis.speak(u);
+}
+if("speechSynthesis" in window){ window.speechSynthesis.getVoices(); }
+window.speechSynthesis.onvoiceschanged = function(){ window.speechSynthesis.getVoices(); };
+</script>
+</body>
+</html>
