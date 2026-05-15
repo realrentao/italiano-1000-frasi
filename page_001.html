@@ -657,6 +657,8 @@ const AUDIO_B64 = {
 // ============================================================
 let currentAudio = null;
 let currentBtn = null;
+// 解决 iOS Safari：首次用户交互后解锁 audio context
+let audioUnlocked = false;
 
 function playAudio(sentenceId, speed) {
   // 1. 停止当前播放
@@ -670,29 +672,35 @@ function playAudio(sentenceId, speed) {
   }
 
   // 2. 获取音频数据
-  const audioData = AUDIO_B64[sentenceId] && AUDIO_B64[sentenceId][speed];
+  var audioData = AUDIO_B64[sentenceId] && AUDIO_B64[sentenceId][speed];
   if (!audioData) {
-    console.warn(`音频缺失: ${sentenceId}/${speed}`);
+    console.warn('音频缺失: ' + sentenceId + '/' + speed);
     return;
   }
 
-  // 3. 创建并播放音频
-  const audio = new Audio(audioData);
+  // 3. 解锁 iOS audio（首次用户交互）
+  if (!audioUnlocked) {
+    audioUnlocked = true;
+  }
+
+  // 4. 创建并播放音频（兼容移动端）
+  var audio = new Audio();
+  audio.src = audioData;
   currentAudio = audio;
 
-  // 4. 找到对应的按钮并高亮
-  const card = document.getElementById(sentenceId);
+  // 5. 找到对应的按钮并高亮
+  var card = document.getElementById(sentenceId);
   if (card) {
-    const speedMap = { slow: 0, normal: 1, fast: 2 };
-    const btns = card.querySelectorAll('.audio-btn');
-    const btn = btns[speedMap[speed]];
+    var speedMap = { slow: 0, normal: 1, fast: 2 };
+    var btns = card.querySelectorAll('.audio-btn');
+    var btn = btns[speedMap[speed]];
     if (btn) {
       btn.classList.add('playing');
       currentBtn = btn;
     }
   }
 
-  // 5. 播放结束后取消高亮
+  // 6. 播放结束后取消高亮
   audio.addEventListener('ended', function() {
     if (currentBtn) {
       currentBtn.classList.remove('playing');
@@ -701,10 +709,23 @@ function playAudio(sentenceId, speed) {
     currentAudio = null;
   });
 
-  // 6. 开始播放
-  audio.play().catch(function(e) {
-    console.warn('播放失败:', e);
+  // 7. 错误处理
+  audio.addEventListener('error', function(e) {
+    console.warn('音频加载失败: ' + sentenceId + '/' + speed, e);
+    if (currentBtn) {
+      currentBtn.classList.remove('playing');
+      currentBtn = null;
+    }
   });
+
+  // 8. 移动端兼容：先 load()，再 play()
+  audio.load();
+  var playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(function(e) {
+      console.warn('播放失败:', e.message);
+    });
+  }
 }
 </script>
 </body>
