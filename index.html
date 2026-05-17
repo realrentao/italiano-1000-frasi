@@ -14,18 +14,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .header p{color:var(--gold-light);font-size:.95em;opacity:.85;position:relative;z-index:1;margin-top:8px}
 .stats-bar{display:flex;justify-content:center;gap:30px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:1}
 .stat-item{text-align:center}.stat-num{font-size:2em;font-weight:bold;color:var(--gold)}.stat-label{font-size:.82em;color:rgba(255,255,255,.65)}
-.container{max-width:900px;margin:0 auto;padding:20px 16px 60px}
-.section-title{font-size:1em;font-weight:700;color:var(--navy);margin:25px 0 12px;padding-left:12px;border-left:4px solid var(--gold);display:flex;align-items:center;gap:8px}
+.container{max-width:960px;margin:0 auto;padding:20px 20px 60px}
+.section-title{font-size:.95em;font-weight:700;color:var(--navy);margin:20px 0 10px;padding-left:12px;border-left:4px solid var(--gold);display:flex;align-items:center;gap:8px}
 .section-title span{color:var(--gold)}
-.page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.page-card{background:#fff;border-radius:10px;padding:14px 12px;text-decoration:none;color:var(--text-dark);transition:all .25s;border:1.5px solid transparent;display:flex;flex-direction:column;align-items:center;text-align:center}
-.page-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.page-card-num{background:linear-gradient(135deg,var(--navy),#24355a);color:var(--gold);width:38px;height:38px;line-height:38px;border-radius:50%;font-size:.8em;font-weight:bold;margin-bottom:6px}
-.page-card-range{font-size:.88em;font-weight:600;color:var(--navy)}
+.page-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.page-card{background:#fff;border-radius:12px;padding:16px 10px;text-decoration:none;color:var(--text-dark);transition:all .25s;border:1.5px solid var(--gray-mid);display:flex;flex-direction:column;align-items:center;text-align:center}
+.page-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.page-card-num{background:linear-gradient(135deg,var(--navy),#24355a);color:var(--gold);width:40px;height:40px;line-height:40px;border-radius:50%;font-size:.82em;font-weight:bold;margin-bottom:8px}
+.page-card-range{font-size:.85em;font-weight:600;color:var(--navy)}
 .page-card-label{font-size:.72em;color:#999;margin-top:3px}
 .footer{text-align:center;padding:30px 20px;color:#aaa;font-size:.82em;border-top:1px solid var(--gray-mid);margin-top:30px}
 .footer a{color:var(--gold);text-decoration:none}
 @media(max-width:600px){.header h1{font-size:1.5em}.page-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:400px){.page-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -41,60 +42,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 
 <div class="container">
 
-<div class="section-title">📖 第 1-10 句</div>
+<div class="section-title">📖 第 1-100 句</div>
 <div class="page-grid">
-<a class="page-card" href="page_001.html">
-  <div class="page-card-num">P01</div>
-  <div class="page-card-range">第 1-10 句</div>
-</a>
-</div>
-
-<div class="section-title">📖 第 11-20 句</div>
-<div class="page-grid">
-<a class="page-card" href="page_002.html">
-  <div class="page-card-num">P02</div>
-  <div class="page-card-range">第 11-20 句</div>
-</a>
-</div>
-
-<div class="section-title">📖 第 21-30 句</div>
-<div class="page-grid">
-<a class="page-card" href="page_003.html">
-  <div class="page-card-num">P03</div>
-  <div class="page-card-range">第 21-30 句</div>
-</a>
-</div>
-
-<div class="section-title">📖 第 31-40 句</div>
-<div class="page-grid">
-<a class="page-card" href="page_004.html">
-  <div class="page-card-num">P04</div>
-  <div class="page-card-range">第 31-40 句</div>
-</a>
-<a class="page-card" href="page_005.html">
-  <div class="page-card-num">P05</div>
-  <div class="page-card-range">第 41-50 句</div>
-</a>
-<a class="page-card" href="page_006.html">
-  <div class="page-card-num">P06</div>
-  <div class="page-card-range">第 51-60 句</div>
-</a>
-<a class="page-card" href="page_007.html">
-  <div class="page-card-num">P07</div>
-  <div class="page-card-range">第 61-70 句</div>
-</a>
-<a class="page-card" href="page_008.html">
-  <div class="page-card-num">P08</div>
-  <div class="page-card-range">第 71-80 句</div>
-</a>
-<a class="page-card" href="page_009.html">
-  <div class="page-card-num">P09</div>
-  <div class="page-card-range">第 81-90 句</div>
-</a>
-<a class="page-card" href="page_010.html">
-  <div class="page-card-num">P10</div>
-  <div class="page-card-range">第 91-100 句</div>
-</a>
+<a class="page-card" href="page_001.html"><div class="page-card-num">P01</div><div class="page-card-range">第 1-10 句</div></a>
+<a class="page-card" href="page_002.html"><div class="page-card-num">P02</div><div class="page-card-range">第 11-20 句</div></a>
+<a class="page-card" href="page_003.html"><div class="page-card-num">P03</div><div class="page-card-range">第 21-30 句</div></a>
+<a class="page-card" href="page_004.html"><div class="page-card-num">P04</div><div class="page-card-range">第 31-40 句</div></a>
+<a class="page-card" href="page_005.html"><div class="page-card-num">P05</div><div class="page-card-range">第 41-50 句</div></a>
+<a class="page-card" href="page_006.html"><div class="page-card-num">P06</div><div class="page-card-range">第 51-60 句</div></a>
+<a class="page-card" href="page_007.html"><div class="page-card-num">P07</div><div class="page-card-range">第 61-70 句</div></a>
+<a class="page-card" href="page_008.html"><div class="page-card-num">P08</div><div class="page-card-range">第 71-80 句</div></a>
+<a class="page-card" href="page_009.html"><div class="page-card-num">P09</div><div class="page-card-range">第 81-90 句</div></a>
+<a class="page-card" href="page_010.html"><div class="page-card-num">P10</div><div class="page-card-range">第 91-100 句</div></a>
 </div>
 
 <div class="section-title">📖 第 101-200 句</div>
