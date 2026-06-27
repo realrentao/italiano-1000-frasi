@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parte 06 - 时间与频率 | 意大利语常用语1000句</title>
+<script>
+// 音频系统 - 逐句懒加载base64音频
+var audioCache = {};
+
+function loadSentenceAudio(num) {
+    if (audioCache[num]) return Promise.resolve(audioCache[num]);
+    return new Promise(function(resolve, reject) {
+        var n = ('000' + num).slice(-3);
+        var script = document.createElement('script');
+        script.src = 'audio_' + n + '.js';
+        script.onload = function() {
+            audioCache[num] = window['AUDIO_' + n];
+            resolve(audioCache[num]);
+        };
+        script.onerror = function() {
+            console.warn('音频缺失: #' + num);
+            resolve(null);
+        };
+        document.head.appendChild(script);
+    });
+}
+
+// 预加载本主题所有音频
+(function() {
+    var nums = [421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480];
+    for (var i = 0; i < nums.length; i++) {
+        (function(n) {
+            setTimeout(function() {
+                var ns = ('000' + n).slice(-3);
+                var s = document.createElement('link');
+                s.rel = 'preload';
+                s.as = 'script';
+                s.href = 'audio_' + ns + '.js';
+                document.head.appendChild(s);
+            }, i * 50);
+        })(nums[i]);
+    }
+})();
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+:root {
+    --ita-green: #009246;
+    --ita-white: #F5F5F0;
+    --ita-red: #CE2B37;
+    --gold: #C4A35A;
+    --gold-light: #F0E6C8;
+    --gold-dark: #A0813A;
+    --cream: #FDF8F0;
+    --warm-bg: #FAF6EE;
+    --card-bg: #FFFFFF;
+    --text-dark: #2C2416;
+    --text-mid: #6B5D4A;
+    --text-light: #9A8B75;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+    --radius: 16px;
+    --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 18px; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-bg);
+    color: var(--text-dark);
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+.tricolor-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--ita-green) 0%, var(--ita-green) 33.33%, var(--ita-white) 33.33%, var(--ita-white) 66.66%, var(--ita-red) 66.66%, var(--ita-red) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.main-header {
+    background: linear-gradient(135deg, #2C2416 0%, #4A3828 100%);
+    padding: 50px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(196,163,90,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(206,43,55,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.main-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.main-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--gold-light);
+    opacity: 0.8;
+    position: relative;
+}
+
+.main-header .subtitle-cn {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 4px;
+    position: relative;
+}
+
+.flag-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    vertical-align: middle;
+}
+
+.flag-icon svg {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    margin: 16px auto;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+.breadcrumb a {
+    color: var(--gold-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--gold);
+}
+
+.part-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* Hero */
+.part-hero {
+    background: linear-gradient(135deg, #2C2416 0%, #4A3828 100%);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.part-hero::before {
+    content: '⏰';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 8rem;
+    opacity: 0.06;
+    line-height: 1;
+}
+
+.part-hero .part-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.part-hero .part-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.part-hero .part-subtitle {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 1;
+}
+
+.part-hero .part-stats {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Audio Speed Controls in Hero */
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.speed-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.speed-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-right: 4px;
+}
+
+.speed-btn {
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.speed-btn:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+.speed-btn.active {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* Section Cards */
+.section-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(196,163,90,0.15);
+}
+
+.section-header {
+    padding: 16px 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.section-header:hover {
+    background: rgba(196,163,90,0.05);
+}
+
+.section-header .icon {
+    font-size: 1.1rem;
+}
+
+.section-header .toggle-arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.section-header.collapsed .toggle-arrow {
+    transform: rotate(-90deg);
+}
+
+.section-body {
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+}
+
+.section-body.collapsed {
+    display: none;
+}
+
+/* Sentence Items */
+.sentence-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196,163,90,0.08);
+    align-items: flex-start;
+}
+
+.sentence-item:last-child {
+    border-bottom: none;
+}
+
+.sentence-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    min-width: 40px;
+    padding-top: 2px;
+}
+
+.sentence-content {
+    flex: 1;
+}
+
+.sentence-it {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.sentence-it .it-text {
+    flex: 1;
+}
+
+/* Phonetic & IPA styles */
+.sentence-phonetic {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-top: 1px;
+    padding-left: 28px;
+}
+
+.sentence-ipa {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    line-height: 1.4;
+    margin-top: 0;
+    padding-left: 28px;
+    font-family: 'Inter', 'Times New Roman', serif;
+}
+
+.phonetic-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+    background: var(--gold-light);
+    padding: 0 6px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.ipa-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--ita-red);
+    background: rgba(206,43,55,0.08);
+    padding: 0 6px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.phonetic-text {
+    font-family: 'Noto Serif SC', serif;
+}
+
+.ipa-text {
+    font-style: italic;
+}
+
+.sentence-cn {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--ita-green);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 2px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.sentence-cn .cn-text {
+    flex: 1;
+    display: none;
+}
+
+.flag-it-label,
+.flag-cn-label {
+    display: inline-flex;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.inline-play-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-light);
+    background: white;
+    color: var(--gold-dark);
+    font-size: 0.65rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.inline-play-btn:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+    transform: scale(1.1);
+}
+
+.inline-play-btn.playing {
+    background: var(--ita-red);
+    color: white;
+    border-color: var(--ita-red);
+    animation: inlinePulse 0.8s infinite;
+}
+
+@keyframes inlinePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(206,43,55,0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(206,43,55,0); }
+}
+
+.trans-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1px solid var(--ita-green);
+    background: var(--ita-green);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 1;
+    margin-top: 1px;
+}
+
+.trans-btn:hover {
+    background: #007A38;
+    transform: scale(1.1);
+}
+
+/* Navigation */
+.nav-idioms {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    margin: 28px auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--gold-light);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    border-color: var(--gold);
+    background: var(--cream);
+    transform: translateY(-1px);
+}
+
+.nav-btn.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.nav-btn.prev { justify-self: start; }
+.nav-btn.next { justify-self: end; }
+.nav-home { justify-self: center; }
+
+.page-footer {
+    background: linear-gradient(135deg, #2C2416 0%, #4A3828 100%);
+    color: var(--text-light);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.85rem;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 768px) {
+    .main-header h1 { font-size: 1.5rem; }
+    .main-header { padding: 40px 16px 24px; }
+    .part-hero { padding: 24px 16px; }
+    .part-hero .part-title { font-size: 1.2rem; }
+    .section-header { padding: 12px 16px; font-size: 0.95rem; }
+    .section-body { padding: 12px 16px; }
+    .sentence-num { min-width: 32px; font-size: 0.7rem; }
+    .sentence-it { font-size: 0.88rem; }
+    .sentence-cn { font-size: 0.82rem; }
+    .nav-idioms { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .nav-btn.prev { justify-self: auto; }
+    .nav-btn.next { justify-self: auto; }
+    .nav-home { justify-self: auto; }
+}
+
+@media (max-width: 480px) {
+    .part-container { padding: 0 12px 40px; }
+    .sentence-item { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="tricolor-bar"></div>
+
+<header class="main-header">
+    <h1><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span> 意大利语常用语1000句</h1>
+    <div class="subtitle">1000 Frasi Utili Italiane</div>
+</header>
+
+<div class="breadcrumb">
+    <a href="index.html">🏠 全部主题</a> / Part 06
+</div>
+
+<div class="part-container">
+
+    <!-- Hero -->
+    <div class="part-hero">
+        <div class="part-number">PARTE 06 · 60句</div>
+        <div class="part-title">时间与频率</div>
+        <div class="part-subtitle">第六部分：时间与频率</div>
+        <div class="part-stats">句子 #421 - #480</div>
+        <div class="audio-controls">
+            <div class="speed-controls">
+                <span class="speed-label">语速</span>
+                <button class="speed-btn" onclick="setSpeed(0.6, this)">0.6×</button>
+                <button class="speed-btn active" onclick="setSpeed(1.0, this)">1.0×</button>
+                <button class="speed-btn" onclick="setSpeed(1.4, this)">1.4×</button>
+            </div>
+        </div>
+    </div>
+
+    
+            <div class="section-card">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <span class="icon">📌</span> 时间表达 <span style="font-size:0.8rem;color:var(--text-light);font-weight:400;">(20句)</span>
+                    <span class="toggle-arrow">▼</span>
+                </div>
+                <div class="section-body">
+                    
+            <div class="sentence-item">
+                <div class="sentence-num">#421</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Che ore sono?</span>
+                        <button class="inline-play-btn" data-audio="s421" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">凯 奥雷 索诺</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈke ˈore sˈono/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">几点了？</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#422</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">È tardi.</span>
+                        <button class="inline-play-btn" data-audio="s422" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">埃 塔尔迪</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ɛ tˈardi/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">晚了</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#423</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">È presto.</span>
+                        <button class="inline-play-btn" data-audio="s423" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">埃 普雷斯托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ɛ prˈesto/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">还早</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#424</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">A che ora?</span>
+                        <button class="inline-play-btn" data-audio="s424" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿 凯 奥拉</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/a ˈke ˈora/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">几点？</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#425</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Alle otto.</span>
+                        <button class="inline-play-btn" data-audio="s425" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿莱 奥托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈalle ˈotto/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">八点</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#426</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Tra poco.</span>
+                        <button class="inline-play-btn" data-audio="s426" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">特拉 波科</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈtra pˈoko/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">很快</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#427</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Adesso.</span>
+                        <button class="inline-play-btn" data-audio="s427" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿德索</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/adˈesso/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">现在</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#428</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Subito.</span>
+                        <button class="inline-play-btn" data-audio="s428" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">苏比托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/subˈito/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">马上</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#429</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Dopo.</span>
+                        <button class="inline-play-btn" data-audio="s429" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">多波</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/dˈopo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">之后</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#430</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Prima.</span>
+                        <button class="inline-play-btn" data-audio="s430" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">普里马</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/prˈima/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">之前</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#431</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Mai.</span>
+                        <button class="inline-play-btn" data-audio="s431" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">迈</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈmaj/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">从不</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#432</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Sempre.</span>
+                        <button class="inline-play-btn" data-audio="s432" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">森普雷</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/sˈempre/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">总是</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#433</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ormai.</span>
+                        <button class="inline-play-btn" data-audio="s433" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尔马伊</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈormaj/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">已经</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#434</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Finalmente!</span>
+                        <button class="inline-play-btn" data-audio="s434" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">菲纳尔梅恩特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/finalmˈente/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">终于！</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#435</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ci vuole tempo.</span>
+                        <button class="inline-play-btn" data-audio="s435" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奇 武奥莱 滕波</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈtʃi vwˈole tˈempo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">需要时间</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#436</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Non c'è tempo.</span>
+                        <button class="inline-play-btn" data-audio="s436" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">农 克'埃 滕波</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈnon ˈk'ɛ tˈempo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">没有时间了</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#437</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Perdo tempo.</span>
+                        <button class="inline-play-btn" data-audio="s437" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">佩尔多 滕波</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/pˈerdo tˈempo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">我浪费时间</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#438</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Non ho tempo.</span>
+                        <button class="inline-play-btn" data-audio="s438" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">农 奥 滕波</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈnon ˈo tˈempo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">我没时间</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#439</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Tempo perduto.</span>
+                        <button class="inline-play-btn" data-audio="s439" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">滕波 佩尔杜托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/tˈempo perdˈuto/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">失去的时间</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#440</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Prima o poi.</span>
+                        <button class="inline-play-btn" data-audio="s440" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">普里马 奥 波伊</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/prˈima o ˈpoj/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">迟早</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+            <div class="section-card">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <span class="icon">📌</span> 日期表达 <span style="font-size:0.8rem;color:var(--text-light);font-weight:400;">(20句)</span>
+                    <span class="toggle-arrow">▼</span>
+                </div>
+                <div class="section-body">
+                    
+            <div class="sentence-item">
+                <div class="sentence-num">#441</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Oggi è lunedì.</span>
+                        <button class="inline-play-btn" data-audio="s441" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥吉 埃 卢内德伊</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoggi ɛ lunˈedi/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今天是星期一</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#442</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Domani è martedì.</span>
+                        <button class="inline-play-btn" data-audio="s442" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">多马尼 埃 马尔特德伊</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/domˈani ɛ martˈedi/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">明天是星期二</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#443</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ieri era domenica.</span>
+                        <button class="inline-play-btn" data-audio="s443" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">耶里 埃拉 多梅尼卡</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/jˈeri ˈera domenˈika/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">昨天是星期日</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#444</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Che giorno è oggi?</span>
+                        <button class="inline-play-btn" data-audio="s444" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">凯 焦尔诺 埃 奥吉</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈke dʒˈorno ɛ ˈoggi/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今天星期几？</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#445</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Siamo a che data?</span>
+                        <button class="inline-play-btn" data-audio="s445" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">西阿莫 阿 凯 达塔</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/sjˈamo a ˈke dˈata/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今天几号？</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#446</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">È il primo gennaio.</span>
+                        <button class="inline-play-btn" data-audio="s446" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">埃 伊尔 普里莫 杰纳约</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ɛ ˈil prˈimo dʒennˈajo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">是一月一号</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#447</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Il mio compleanno è a marzo.</span>
+                        <button class="inline-play-btn" data-audio="s447" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">伊尔 米奥 孔普莱安诺 埃 阿 马尔佐</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈil ˈmjo kompleˈanno ɛ a mˈarttso/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">我的生日在三月</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#448</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">L'anno scorso.</span>
+                        <button class="inline-play-btn" data-audio="s448" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">尔'阿诺 斯科尔索</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/l'ˈanno skˈorso/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">去年</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#449</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">L'anno prossimo.</span>
+                        <button class="inline-play-btn" data-audio="s449" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">尔'阿诺 普罗西莫</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/l'ˈanno prossˈimo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">明年</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#450</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Questa settimana.</span>
+                        <button class="inline-play-btn" data-audio="s450" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奎斯塔 塞蒂马纳</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/kwˈesta settimˈana/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">这周</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#451</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">La settimana scorsa.</span>
+                        <button class="inline-play-btn" data-audio="s451" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">拉 塞蒂马纳 斯科尔萨</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈla settimˈana skˈorsa/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">上周</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#452</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">La prossima settimana.</span>
+                        <button class="inline-play-btn" data-audio="s452" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">拉 普罗西马 塞蒂马纳</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈla prossˈima settimˈana/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">下周</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#453</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Questo mese.</span>
+                        <button class="inline-play-btn" data-audio="s453" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">库埃斯托 梅塞</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/kwˈesto mˈeze/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">这个月</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#454</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Il mese scorso.</span>
+                        <button class="inline-play-btn" data-audio="s454" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">伊尔 梅塞 斯科尔索</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈil mˈeze skˈorso/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">上个月</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#455</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Il mese prossimo.</span>
+                        <button class="inline-play-btn" data-audio="s455" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">伊尔 梅塞 普罗西莫</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈil mˈeze prossˈimo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">下个月</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#456</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Oggi pomeriggio.</span>
+                        <button class="inline-play-btn" data-audio="s456" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥吉 波梅里吉奥</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoggi pomerˈiggjo/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今天下午</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#457</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Stasera.</span>
+                        <button class="inline-play-btn" data-audio="s457" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">斯塔塞拉</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/stazˈera/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今晚</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#458</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Stanotte.</span>
+                        <button class="inline-play-btn" data-audio="s458" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">斯塔诺特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/stanˈotte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">今晚/昨夜</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#459</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">A mezzogiorno.</span>
+                        <button class="inline-play-btn" data-audio="s459" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿 梅佐焦尔诺</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/a mettsodʒˈorno/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">中午</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#460</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">A mezzanotte.</span>
+                        <button class="inline-play-btn" data-audio="s460" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿 梅扎诺特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/a mettsanˈotte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">午夜</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+            <div class="section-card">
+                <div class="section-header" onclick="toggleSection(this)">
+                    <span class="icon">📌</span> 频率表达 <span style="font-size:0.8rem;color:var(--text-light);font-weight:400;">(20句)</span>
+                    <span class="toggle-arrow">▼</span>
+                </div>
+                <div class="section-body">
+                    
+            <div class="sentence-item">
+                <div class="sentence-num">#461</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni giorno.</span>
+                        <button class="inline-play-btn" data-audio="s461" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 焦尔诺</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi dʒˈorno/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每天</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#462</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Tutti i giorni.</span>
+                        <button class="inline-play-btn" data-audio="s462" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">图蒂 伊 焦尔尼</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/tˈutti i dʒˈorni/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每天</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#463</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni settimana.</span>
+                        <button class="inline-play-btn" data-audio="s463" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 塞蒂马纳</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi settimˈana/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每周</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#464</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni mese.</span>
+                        <button class="inline-play-btn" data-audio="s464" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 梅塞</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi mˈeze/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每月</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#465</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni anno.</span>
+                        <button class="inline-play-btn" data-audio="s465" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 阿诺</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi ˈanno/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每年</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#466</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Due volte al giorno.</span>
+                        <button class="inline-play-btn" data-audio="s466" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">杜埃 沃尔特 阿尔 焦尔诺</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈdwe vˈolte ˈal dʒˈorno/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每天两次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#467</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Tre volte a settimana.</span>
+                        <button class="inline-play-btn" data-audio="s467" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">特雷 沃尔特 阿 塞蒂马纳</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈtre vˈolte a settimˈana/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每周三次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#468</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Quasi sempre.</span>
+                        <button class="inline-play-btn" data-audio="s468" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">夸齐 森普雷</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/kwˈazi sˈempre/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">几乎总是</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#469</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Quasi mai.</span>
+                        <button class="inline-play-btn" data-audio="s469" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">夸齐 迈</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/kwˈazi ˈmaj/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">几乎从不</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#470</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">A volte.</span>
+                        <button class="inline-play-btn" data-audio="s470" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">阿 沃尔特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/a vˈolte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">有时候</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#471</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Qualche volta.</span>
+                        <button class="inline-play-btn" data-audio="s471" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">夸尔凯 沃尔塔</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/kwˈalke vˈolta/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">有几次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#472</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Rare volte.</span>
+                        <button class="inline-play-btn" data-audio="s472" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">拉雷 沃尔特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/rˈare vˈolte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">很少</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#473</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Di tanto in tanto.</span>
+                        <button class="inline-play-btn" data-audio="s473" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">迪 坦托 因 坦托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈdi tˈanto ˈin tˈanto/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">时不时</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#474</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni tanto.</span>
+                        <button class="inline-play-btn" data-audio="s474" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 坦托</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi tˈanto/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">偶尔</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#475</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Mai più.</span>
+                        <button class="inline-play-btn" data-audio="s475" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">迈 皮乌</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈmaj pˈiu/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">永远不再</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#476</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Una volta.</span>
+                        <button class="inline-play-btn" data-audio="s476" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">乌纳 沃尔塔</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈuna vˈolta/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">一次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#477</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Due volte.</span>
+                        <button class="inline-play-btn" data-audio="s477" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">杜埃 沃尔特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈdwe vˈolte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">两次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#478</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Più volte.</span>
+                        <button class="inline-play-btn" data-audio="s478" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">皮乌 沃尔特</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/pˈiu vˈolte/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">多次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#479</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">Ogni volta.</span>
+                        <button class="inline-play-btn" data-audio="s479" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">奥尼 沃尔塔</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈoɲɲi vˈolta/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">每次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sentence-item">
+                <div class="sentence-num">#480</div>
+                <div class="sentence-content">
+                    <div class="sentence-it">
+                        <span class="flag-it-label"><span class="flag-icon flag-it"><svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></span>
+                        <span class="it-text">La prima volta.</span>
+                        <button class="inline-play-btn" data-audio="s480" title="朗读">▶</button>
+                    </div>
+                    <div class="sentence-phonetic">
+                        <span class="phonetic-label">谐音</span>
+                        <span class="phonetic-text">拉 普里马 沃尔塔</span>
+                    </div>
+                    <div class="sentence-ipa">
+                        <span class="ipa-label">音标</span>
+                        <span class="ipa-text">/ˈla prˈima vˈolta/</span>
+                    </div>
+                    <div class="sentence-cn">
+                        <span class="flag-cn-label"><span class="flag-icon flag-cn"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.2,2.8 5.8,4.5 7.6,4.5 6.1,5.7 6.7,7.4 5.2,6.2 3.7,7.4 4.3,5.7 2.8,4.5 4.6,4.5" fill="#FFDE00"/><polygon points="12,3.6 12.3,4.5 13.2,4.5 12.5,5.1 12.8,6 12,5.4 11.2,6 11.5,5.1 10.8,4.5 11.7,4.5" fill="#FFDE00"/><polygon points="13.8,7.4 14.3,8.1 15.1,8 14.6,8.6 15,9.4 14.2,9.2 13.6,9.8 13.6,9 12.8,8.7 13.6,8.4" fill="#FFDE00"/><polygon points="12,10.8 12.5,11.5 13.3,11.3 12.8,12 13.2,12.8 12.4,12.5 11.8,13.1 11.8,12.3 11,12.1 11.8,11.8" fill="#FFDE00"/><polygon points="9.2,10.2 9.5,11 10.4,11 9.7,11.5 10,12.4 9.2,11.9 8.4,12.3 8.7,11.4 8,10.9 8.9,10.8" fill="#FFDE00"/></svg></span></span>
+                        <span class="cn-text">第一次</span>
+                        <button class="trans-btn" onclick="toggleTrans(this)" title="显示译文">译</button>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav-idioms">
+    <a href="part_05.html" class="nav-btn prev">← Part 05</a>
+    <a href="index.html" class="nav-btn nav-home">🏠 导航</a>
+    <a href="part_07.html" class="nav-btn next">Part 07 →</a>
+</div>
+
+<footer class="page-footer">
+    <p>涛子办事处 · 意大利语常用语1000句 · Part 06/14</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Global audio speed
+var currentSpeed = 1.0;
+var currentAudio = null;
+
+function setSpeed(speed, btn) {
+    currentSpeed = speed;
+    document.querySelectorAll('.speed-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.playbackRate = speed;
+    }
+}
+
+// Section toggle
+function toggleSection(header) {
+    header.classList.toggle('collapsed');
+    var body = header.nextElementSibling;
+    body.classList.toggle('collapsed');
+}
+
+// Translation toggle (hidden by default)
+function toggleTrans(btn) {
+    var cnText = btn.previousElementSibling;
+    if (cnText && cnText.classList.contains('cn-text')) {
+        if (cnText.style.display === 'none' || cnText.style.display === '') {
+            cnText.style.display = 'inline';
+            btn.textContent = '×';
+        } else {
+            cnText.style.display = 'none';
+            btn.textContent = '译';
+        }
+    }
+}
+
+// Per-sentence audio playback
+function playSentence(num, btn) {
+    // Stop current
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+    document.querySelectorAll('.inline-play-btn.playing').forEach(function(b) {
+        b.classList.remove('playing');
+        b.textContent = '▶';
+    });
+    
+    btn.textContent = '⏳';
+    
+    loadSentenceAudio(num).then(function(b64) {
+        if (!b64) {
+            btn.textContent = '✗';
+            setTimeout(function() { btn.textContent = '▶'; }, 1000);
+            return;
+        }
+        try {
+            var audio = new Audio('data:audio/mp3;base64,' + b64);
+            audio.preload = 'auto';
+            audio.playbackRate = currentSpeed;
+            
+            audio.oncanplaythrough = function() {
+                audio.play().then(function() {
+                    btn.textContent = '⏸';
+                    btn.classList.add('playing');
+                }).catch(function() {
+                    btn.textContent = '▶';
+                });
+            };
+            
+            audio.onended = function() {
+                btn.textContent = '▶';
+                btn.classList.remove('playing');
+            };
+            
+            audio.onerror = function() {
+                btn.textContent = '✗';
+                setTimeout(function() { btn.textContent = '▶'; }, 1000);
+                btn.classList.remove('playing');
+            };
+            
+            currentAudio = audio;
+            
+            if (audio.readyState >= 3) {
+                audio.play().then(function() {
+                    btn.textContent = '⏸';
+                    btn.classList.add('playing');
+                }).catch(function() {
+                    btn.textContent = '▶';
+                });
+            }
+        } catch(e) {
+            btn.textContent = '▶';
+        }
+    });
+}
+
+// Click handler
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.inline-play-btn');
+    if (btn && btn.dataset.audio) {
+        e.stopPropagation();
+        e.preventDefault();
+        var num = btn.dataset.audio.replace('s', '');
+        playSentence(num, btn);
+    }
+});
+
+// Back to top
+window.addEventListener('scroll', function() {
+    document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 300);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+# 音频缓存（不提交，只在本地生成用）
+.audio_cache/
+
+# 工作缓存
+.workbuddy/
+
+# 生成脚本
+generate_rebuild.py
+generate_audio.py
